@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+body{
+  height:100vh;
+  background:radial-gradient(circle at bottom,#1b2735,#090a0f);
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.page{
+  display:none;
+  text-align:center;
+  padding:30px;
+  max-width:420px;
+  animation:fade 1s ease;
+}
+
+.page.active{display:block;}
+
+h1{color:#ffd166;margin-bottom:15px;}
+p{font-size:18px;line-height:1.6;margin-bottom:20px;}
+
+button{
+  padding:10px 26px;
+  border:none;
+  border-radius:25px;
+  background:#ff6f91;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+button:hover{background:#ff4d6d;}
+
+.cat{
+  font-size:80px;
+  animation:bounce 1.5s infinite;
+  margin:15px 0;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+}
+
+/* Fireworks */
+.firework{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:gold;
+  border-radius:50%;
+  animation:explode 1.2s infinite;
+}
+
+@keyframes explode{
+  0%{transform:scale(0);opacity:1;}
+  100%{transform:scale(20);opacity:0;}
+}
+
+.music{
+  position:fixed;
+  bottom:10px;
+  right:10px;
+  font-size:14px;
+  opacity:0.7;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 NON-COPYRIGHT MUSIC -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/10/03/audio_7b1c8b7f7a.mp3?filename=romantic-love-ambient-121008.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music">🎧 Music on</div>
+
+<!-- PAGE 1 -->
+<div class="page active">
+  <h1>Hey You 🐾</h1>
+  <div class="cat">🐱</div>
+  <p>I made this just for you…</p>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <h1>Another Year ✨</h1>
+  <div class="cat">😺</div>
+  <p>Time passed quietly… but you stayed.</p>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <h1>Small Chats 💬</h1>
+  <div class="cat">🐾</div>
+  <p>Simple talks… real smiles.</p>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <h1>A Little Shy 😳</h1>
+  <div class="cat">🙈</div>
+  <p>Some feelings were quiet… but true.</p>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+  <h1>You Matter 💛</h1>
+  <div class="cat">😸</div>
+  <p>You made ordinary days warm.</p>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+  <h1>New Beginnings 🌱</h1>
+  <div class="cat">🐈</div>
+  <p>New year… new memories.</p>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page">
+  <h1>Fireworks 🎆</h1>
+  <div class="cat">🐱✨</div>
+  <p>Because this moment deserves magic.</p>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 8 FINAL -->
+<div class="page">
+  <h1>Happy New Year 🎉</h1>
+  <div class="cat">🐱❤️</div>
+  <p>
+    May this year bring you smiles,<br>
+    peace and love…<br><br>
+    <strong>I love you ❤️</strong>
+  </p>
+  <p>— Himanshu</p>
+</div>
+
+<script>
+let current = 0;
+const pages = document.querySelectorAll(".page");
+
+function nextPage(){
+  pages[current].classList.remove("active");
+  current++;
+  if(current < pages.length){
+    pages[current].classList.add("active");
+  }
+}
+
+// Fireworks
+setInterval(()=>{
+  const fw = document.createElement("div");
+  fw.className="firework";
+  fw.style.left=Math.random()*window.innerWidth+"px";
+  fw.style.top=Math.random()*window.innerHeight+"px";
+  fw.style.background=`hsl(${Math.random()*360},100%,60%)`;
+  document.body.appendChild(fw);
+  setTimeout(()=>fw.remove(),1200);
+},800);
+</script>
+
+</body>
+</html>
